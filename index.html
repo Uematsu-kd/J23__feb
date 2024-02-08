@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>じゃんけんゲーム</title>
+</head>
+<body>
+    <h1>じゃんけんゲーム</h1>
+    <p>自分の手を選んでください：</p>
+    <button onclick="playerChoice('rock')"><img src="rock.jpeg" alt="Rock"></button>
+    <button onclick="playerChoice('paper')"><img src="paper.jpeg" alt="Paper"></button>
+    <button onclick="playerChoice('scissors')"><img src="scissors.jpeg" alt="Scissors"></button>
+
+    <p id="result"></p>
+
+    <script>
+        function playerChoice(playerHand) {
+            const hands = ['rock', 'paper', 'scissors'];
+            const computerHand = hands[Math.floor(Math.random() * 3)];
+
+            let resultText;
+
+            if (playerHand === computerHand) {
+                resultText = "引き分けです！もう一度挑戦してください。";
+            } else if (
+                (playerHand === 'rock' && computerHand === 'scissors') ||
+                (playerHand === 'paper' && computerHand === 'rock') ||
+                (playerHand === 'scissors' && computerHand === 'paper')
+            ) {
+                resultText = "勝ちました！おめでとうございます。";
+            } else {
+                resultText = "残念！負けました。";
+            }
+
+            document.getElementById("result").innerText = resultText;
+        }
+    </script>
+</body>
+</html>
