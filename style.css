@@ -1,5 +1,49 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center; /* テキストを中央揃えにする */
+}
+
+h1 {
+    text-align: center;
+}
+
+.button-container {
+    display: flex; /* ボタンを水平方向に並べるためにフレックスボックスを使用 */
+    justify-content: center; /* ボタンを中央に配置 */
+}
+
 button {
     border: none;
     background: none;
     cursor: pointer;
+}
+
+.hand-container {
+    display: inline-block; /* 自分の手と相手の手を横に並べる */
+    margin-right: 20px;
+    vertical-align: middle; /* 画像の中央揃え */
+}
+
+.hand-container img {
+    width: 100px;
+    height: 100px; /* 画像の高さを指定 */
+}
+
+#player-hand,
+#computer-hand {
+    margin-top: 20px; /* 手の表示を下方向に少し移動 */
+}
+
+#result {
+    text-align: center; /* 結果表示を中央に配置 */
 }

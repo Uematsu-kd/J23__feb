@@ -4,13 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>じゃんけんゲーム</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>じゃんけんゲーム</h1>
-    <p>自分の手を選んでください：</p>
-    <button onclick="playerChoice('rock')"><img src="rock.jpeg" alt="Rock"></button>
-    <button onclick="playerChoice('paper')"><img src="paper.jpeg" alt="Paper"></button>
-    <button onclick="playerChoice('scissors')"><img src="scissors.jpeg" alt="Scissors"></button>
+    <div class="container">
+        <p>自分の手を選んでください：</p>
+        <div class="button-container">
+            <div class="hand-container">
+                <button onclick="playerChoice('rock')"><img src="rock.jpeg" alt="Rock"></button>
+            </div>
+            <div class="hand-container">
+                <button onclick="playerChoice('paper')"><img src="paper.jpeg" alt="Paper"></button>
+            </div>
+            <div class="hand-container">
+                <button onclick="playerChoice('scissors')"><img src="scissors.jpeg" alt="Scissors"></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"> <!-- 手の表示を中央に配置 -->
+        <div class="hand-container" id="player-hand"></div> <!-- 自分の手の表示 -->
+        <div class="hand-container" id="computer-hand"></div> <!-- 相手の手の表示 -->
+    </div>
 
     <p id="result"></p>
 
@@ -20,6 +36,9 @@
             const computerHand = hands[Math.floor(Math.random() * 3)];
 
             let resultText;
+
+            document.getElementById("player-hand").innerHTML = `<img src="${playerHand}.jpeg" alt="${playerHand}"> 自分の手`;
+            document.getElementById("computer-hand").innerHTML = `<img src="${computerHand}.jpeg" alt="${computerHand}"> 相手の手`;
 
             if (playerHand === computerHand) {
                 resultText = "引き分けです！もう一度挑戦してください。";
